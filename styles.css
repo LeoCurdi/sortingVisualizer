@@ -1,0 +1,151 @@
+/* body */
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        background-color: /* #0a1a34 */#2a2a2a;
+
+        /* mount everything to the bottom of the page (remove this if putting the control bar on top */
+        position: absolute;
+        bottom: 0;
+    }
+
+
+/* bars */
+    #barContainer {
+        display: flex;
+        align-items: flex-end;
+        height: 80vh;
+        width: 75%;
+        margin-left: 12.5%;
+        background-color: /* #0a1a34 */#2a2a2a;
+    }
+    .bar {
+        height: 100%;
+        margin: 0 1px;
+        /* background-color: #05e6ff; */
+        background-image: linear-gradient(to bottom, #ffffff, #000000);
+/*         background-size: 100% 120%;
+        background-position: center top;
+        background-repeat: no-repeat; */
+        flex: 1;
+    }
+    .sortedBar {
+        /* background-image: none; */
+        background-color: /* #9D81FF */#00005b;
+        background-image: linear-gradient(to bottom, #0000c2, #000000);
+    }
+    .activeBar {
+        background-image: none;
+        background-color: /* #691eff */red;
+    }
+    .pivotBar {
+        background-image: none;
+        background-color: /* #35ff1e */red;
+    }
+    .leftArray {
+        /* background-image: none; */
+        background-color: /* #00ffd9 */none;
+    }
+    .rightArray {
+        /* background-image: none; */
+        background-color: /* #d951ff */none;
+        /* background-color: #6d87ff; */ /* delete this line (testing stuff) */
+    }
+
+
+
+/* controls */
+    #controls {
+      display: inline-block;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      background-color: /* #08152a */#000000;
+      padding: 1.9rem 0;
+    }
+    #buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    button {
+      margin: 5px;
+      padding: 15px 20px;
+      font-size: 1em;
+      background-color: /* #691eff *//* #7b0000 */ #00005b; /* alt color: #4286f4 */
+      color: #fff/* #222222 */;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button[disabled] { /* hide hover effect on buttons that you cant click on (algo buttons when another algo is running) */
+      pointer-events: none;
+      opacity: /* .15 */.2;
+    }
+    button:hover {
+      background-color: /* rgb(157, 129, 255) */#00005b5d;
+    }
+
+    .row1 {
+        display: inline-flex;
+    }
+
+    #sliders {
+      color: #fff; /* text color */
+      margin-top: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #size {
+      margin-left: 1em;
+      margin-right: .75em;
+      padding-left: 0;
+    }
+    #speed {
+      margin-right: 1em;
+      margin-left: .75em;
+      padding-left: 0;
+    }
+    #sizeSlider, #speedSlider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      align-self: center;
+      height: 3px;
+      border-radius: 0px;
+      background: rgb(202, 202, 202);
+      /* margin-right: 100px; */ /* this makes the slider bars longer */
+      width: 16em; /* this makes the slider bars longer */
+      margin-bottom: 10px;
+    }
+    #sizeSlider::-webkit-slider-thumb, #speedSlider::-webkit-slider-thumb { /* WebKit (Safari, Chrome) */
+      -webkit-appearance: none;
+      appearance: none;
+      width: 9px;
+      height: 23px;
+      border-radius: 0%;
+      background: /* #691eff *//* #7b0000 */#00005b;
+      cursor: pointer;
+    }
+    #sizeSlider::-moz-range-thumb, #speedSlider::-moz-range-thumb { /* Firefox */
+      appearance: none;
+      width: 9px;
+      height: 23px;
+      border-radius: 0%;
+      background: #691eff;
+      cursor: pointer;
+    }
+    .sizeLabel, .speedLabel {
+      width: 100%;
+      text-align: center;
+    }
+    #sizeValueDisplay, #speedValueDisplay {
+      padding-left: 3px;
+    }
