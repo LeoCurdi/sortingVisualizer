@@ -12,6 +12,7 @@
     #barSection {
         width: 100%;
         background-color: #2a2a2a;
+        background-image: linear-gradient(to bottom, #1f1f1f, #2a2a2a);
         padding-top: 2rem;
     }
 
@@ -22,6 +23,7 @@
         width: 90%;
         margin-left: 5%;
         background-color: #2a2a2a;
+        background-image: linear-gradient(to bottom, #1f1f1f, #2a2a2a);
     }
     .bar {
         height: 100%;
@@ -75,8 +77,9 @@
       background-color: #00005b;
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 10px;
       cursor: pointer;
+      background-image: linear-gradient(to right, #00004d, #00007f);
     }
     button[disabled] { /* hide hover effect on buttons that you cant click on (algo buttons when another algo is running) */
       pointer-events: none;
@@ -84,6 +87,7 @@
     }
     button:hover {
       background-color: #00005b5d;
+      background-image: none;
     }
 
     .row1 {
@@ -114,7 +118,8 @@
       align-self: center;
       height: 3px;
       border-radius: 0px;
-      background: rgb(202, 202, 202);
+      background: #cacaca;
+      background-image: linear-gradient(to right, #7a7a7a, #e7e7e7);
       width: 16em; /* this makes the slider bars longer */
       margin-bottom: 10px;
     }
@@ -174,11 +179,11 @@ table {
     font-size: 1.5rem;
 }
 table .leftCol {
-    border-right: #00005b 3px solid;
+    border-right: #00007f 3px solid;
     padding-right: .5rem;
 }
 .nonBottomRow {
-    border-bottom: #00005b 3px solid;
+    border-bottom: #00007f 3px solid;
 }
 table .rightCol {
     padding-left: .5rem;
