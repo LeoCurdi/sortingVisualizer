@@ -22,8 +22,6 @@
         height: 70vh;
         width: 90%;
         margin-left: 5%;
-        background-color: #2a2a2a;
-        background-image: linear-gradient(to bottom, #1f1f1f, #2a2a2a);
     }
     .bar {
         height: 100%;
