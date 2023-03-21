@@ -1,5 +1,13 @@
 
 // heap sort
+async function heapSort() {
+    console.log(integerArray);
+    disableButtons();
+    resetButton = false;
+    await heapSortAlgo();
+    console.log(integerArray);
+}
+
 async function heapSortAlgo() {
     // Build max heap (this isnt an actual binary tree data structure, just a specific rearrangement of the array to simulate one)
     for (let middle = Math.floor(integerArray.length / 2) - 1; middle >= 0; middle--) {
@@ -15,7 +23,7 @@ async function heapSortAlgo() {
 
         // check for reset
         if (resetButton) { 
-            return;
+            return; 
         }
 
         barArray[i].classList.add('sortedBar');
@@ -29,12 +37,6 @@ async function heapSortAlgo() {
 }
   
 async function heapify(integerArray, root, heapSize) {
-
-    // check for reset
-    if (resetButton) { 
-        return;
-    }
-
     let largest = root;
     let left = 2 * root + 1; // if you draw out the tree, you can see that left is the left child of root and right is the right child of root
     let right = 2 * root + 2;

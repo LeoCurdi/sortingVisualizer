@@ -4,41 +4,322 @@
 	<link rel="icon" href="favicon.png" type="image/x-icon">
 	<title>Sorting Visualizer</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> --> <!-- hook up a link that lets u use tailwind -->
 </head>
 <body>
 
-	<div id="barContainer"></div>
+    <div id="barSection">
+        <div id="barContainer"></div>
+    </div>
 
-  <div id="controls">
-    <div id="buttons">
-        <div class="row1">
-            <button onclick="reset()">Generate New Array</button>
-            <div id="sliders">    
-              <div id="size">
-                <input onclick="reset(), adjustSpeed()" id="sizeSlider" type="range" min="5" max="500" step=1 value="60">
-                <div class="sizeLabel">
-                  <span>Size:</span><span id="sizeValueDisplay">60</span>
+    <div id="controls">
+        <div id="buttons">
+            <div class="row1">
+                <button onclick="reset()">Generate New Array</button>
+                <div id="sliders">    
+                <div id="size">
+                    <input onclick="reset(), adjustSpeed()" id="sizeSlider" type="range" min="5" max="500" step=1 value="60">
+                    <div class="sizeLabel">
+                    <span>Size:</span><span id="sizeValueDisplay">60</span>
+                    </div>
                 </div>
-              </div>
-              <div id="speed">
-                <input onclick="adjustSpeed()" id="speedSlider" type="range" min="1" max="25" stepDown=1 value="5">
-                <div class="speedLabel">
-                  <span>Speed:</span><span id="speedValueDisplay">5</span>
+                <div id="speed">
+                    <input onclick="adjustSpeed()" id="speedSlider" type="range" min="1" max="25" stepDown=1 value="5">
+                    <div class="speedLabel">
+                    <span>Speed:</span><span id="speedValueDisplay">5</span>
+                    </div>
                 </div>
-              </div>
+                </div>
+            </div>
+            <div class="row2">
+                <button class="algoButton" onclick="bubbleSort()">Bubble Sort</button>
+                <button class="algoButton" onclick="selectionSort()">Selection Sort</button>
+                <button class="algoButton" onclick="insertionSort()">Insertion Sort</button>
+                <button class="algoButton" onclick="quickSort()">Quick Sort</button>
+                <button class="algoButton" onclick="mergeSort()">Merge Sort</button>
+                <button class="algoButton" onclick="heapSort()">Heap Sort</button>
             </div>
         </div>
-        <div class="row2">
-            <button class="algoButton" onclick="bubbleSort()">Bubble Sort</button>
-            <button class="algoButton" onclick="selectionSort()">Selection Sort</button>
-            <button class="algoButton" onclick="insertionSort()">Insertion Sort</button>
-            <button class="algoButton" onclick="quickSort()">Quick Sort</button>
-            <button class="algoButton" onclick="mergeSort()">Merge Sort</button>
-            <button class="algoButton" onclick="heapSort()">Heap Sort</button>
-        </div>
     </div>
-  </div>
 
+    <div id="infoSection">
+
+        <div id="infoSectionHome" class="infoSectionContent">
+            <div>
+                <h2>Sorting Algorithms</h2>
+                <p>
+                    Sorting algorithms are used to sort a data structure according to a specific order relationship, such as numerical 
+                    order or lexicographical order.
+                </p>
+                <p>
+                    This operation is one of the most important and widespread in computer science. For a long time, new methods have been 
+                    developed to make this procedure faster and faster.
+                </p>
+                <p>
+                    There are currently hundreds of different sorting algorithms, each with its own specific characteristics. They are classified 
+                    according to two metrics: space complexity and time complexity.
+                </p>
+                <p>
+                    Those two kinds of complexity are represented with asymptotic notations, mainly with the symbols O, Θ, Ω, representing respectively 
+                    the upper bound, the tight bound, and the lower bound of the algorithm's complexity, specifying in brackets an expression in 
+                    terms of n, the number of the elements of the data structure.
+                </p>
+                <p>
+                    Most of them fall into two categories:
+                </p>
+
+                <p style="padding-left: 1.25rem; margin-bottom: 0;">Logarithmic</p>
+                <p style="padding-left: 2.5rem; margin-bottom: 0; margin-top: 0;;">The complexity is proportional to the binary logarithm (i.e to the base 2) of n.</p>
+                <p style="padding-left: 2.5rem; margin-top: 0;">An example of a logarithmic sorting algorithm is Quick sort, with space and time complexity O(n × log n).</p>
+                
+                <p style="padding-left: 1.25rem; margin-bottom: 0;">Quadratic</p>
+                <p style="padding-left: 2.5rem; margin-bottom: 0; margin-top: 0;">The complexity is proportional to the square of n.</p>
+                <p style="padding-left: 2.5rem; margin-top: 0;">An example of a quadratic sorting algorithm is Bubble sort, with a time complexity of O(n<sup>2</sup>).</p>
+
+                <p>Space and time complexity can also be further subdivided into 3 different cases: best case, average case and worst case.</p>
+                <p>
+                    Sorting algorithms can be difficult to understand and it's easy to get confused. I believe visualizing sorting algorithms 
+                    can be a great way to better understand their functioning while having fun!
+                </p>
+            </div>
+        </div>
+
+        <div id="infoSectionBubble" class="infoSectionContent">
+            <div class="infoSectionWords">
+                <h2>DESCRIPTION</h2>
+                <p>
+                    Bubble Sort is an iterative sorting algorithm that imitates the movement of bubbles in sparkling water. The bubbles represents 
+                    the elements of the data structure.
+                </p>
+                <p>
+                    The bigger bubbles reach the top faster than smaller bubbles, and this algorithm works in the same way. It iterates 
+                    through the data structure and for each cycle compares the current element with the next one, swapping them if they 
+                    are in the wrong order.
+                </p>
+                <p>
+                    It's a simple algorithm to implement, but not very efficient: on average, quadratic sorting algorithms with the same 
+                    time complexity such as Selection Sort or Insertion Sort perform better.
+                </p>
+                <p>
+                    It has several variants to improve its performance, such as Shaker Sort, Odd Even Sort and Comb Sort.
+                </p>
+            </div>
+            <div class="infoSectionTable">
+                <h2>COMPLEXITY</h2>
+                <table>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Average</td>
+                      <td class="rightCol">O(n<sup>2</sup>)</td>
+                    </tr>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Best Case</td>
+                      <td class="rightCol">O(n)</td>
+                    </tr>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Worst Case</td>
+                      <td class="rightCol">O(n<sup>2</sup>)</td>
+                    </tr>
+                    <tr>
+                      <td class="leftCol">Space Complexity</td>
+                      <td class="rightCol">O(1)</td>
+                    </tr>
+                </table>                  
+            </div>
+        </div>
+
+        <div id="infoSectionSelection" class="infoSectionContent">
+            <div class="infoSectionWords">
+                <h2>DESCRIPTION</h2>
+                <p>
+                    Selection Sort is an iterative and in-place sorting algorithm that divides the data structure in two sublists: 
+                    the ordered one, and the unordered one. The algorithm loops for all the elements of the data structure and for every 
+                    cycle picks the smallest element of the unordered sublist and adds it to the sorted sublist, progressively filling it.
+                </p>
+                <p>
+                    It's a really simple and intuitive algorithm that does not require additional memory, but it's not really efficient on 
+                    big data structures due to its quadratic time complexity.
+                </p>
+                <p>
+                    This algorithm has been upgraded and enhanced in several variants such as Heap Sort.
+                </p>
+            </div>
+            <div class="infoSectionTable">
+                <h2>COMPLEXITY</h2>
+                <table>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Average</td>
+                      <td class="rightCol">O(n<sup>2</sup>)</td>
+                    </tr>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Best Case</td>
+                      <td class="rightCol">O(n<sup>2</sup>)</td>
+                    </tr>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Worst Case</td>
+                      <td class="rightCol">O(n<sup>2</sup>)</td>
+                    </tr>
+                    <tr>
+                      <td class="leftCol">Space Complexity</td>
+                      <td class="rightCol">O(1)</td>
+                    </tr>
+                </table>                  
+            </div>
+        </div>
+
+        <div id="infoSectionInsertion" class="infoSectionContent">
+            <div class="infoSectionWords">
+                <h2>DESCRIPTION</h2>
+                <p>
+                    Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time. 
+                    It's less performant than advanced sorting algorithms, but it can still have some advantages: it's really 
+                    easy to implement and it's efficient on small data structures that are already almost sorted.
+                </p>
+                <p>
+                    The algorithm divides the data structure in two sublists: a sorted one, and an unsorted one. Initially, the sorted sublist 
+                    is made up of just one element and it gets progressively filled. For every iteration, the algorithm picks an element on the 
+                    unsorted sublist and inserts it at the correct place in the sorted sublist. It's available in several variants such as Gnome Sort.
+                </p>
+            </div>
+            <div class="infoSectionTable">
+                <h2>COMPLEXITY</h2>
+                <table>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Average</td>
+                      <td class="rightCol">O(n<sup>2</sup>)</td>
+                    </tr>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Best Case</td>
+                      <td class="rightCol">O(n)</td>
+                    </tr>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Worst Case</td>
+                      <td class="rightCol">O(n<sup>2</sup>)</td>
+                    </tr>
+                    <tr>
+                      <td class="leftCol">Space Complexity</td>
+                      <td class="rightCol">O(1)</td>
+                    </tr>
+                </table>                  
+            </div>
+        </div>
+
+        <div id="infoSectionQuick" class="infoSectionContent">
+            <div class="infoSectionWords">
+                <h2>DESCRIPTION</h2>
+                <p>
+                    Quick Sort is a sorting algorithm based on splitting the data structure into smaller partitions and sorting them recursively 
+                    until the data structure is sorted.
+                </p>
+                <p>
+                    This division in partitions is done based on an element, called a pivot: all the elements bigger than the pivot get placed 
+                    on the right side of the structure, and the smaller ones to the left, creating two partitions. Next, this procedure gets applied 
+                    recursively to the two partitions and so on.
+                </p>
+                <p>
+                    This partition technique based on the pivot is called Divide and Conquer. It's a performant strategy used by many sorting algorithms, 
+                    such as Merge Sort.
+                </p>
+            </div>
+            <div class="infoSectionTable">
+                <h2>COMPLEXITY</h2>
+                <table>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Average</td>
+                      <td class="rightCol">O(n x log n)</td>
+                    </tr>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Best Case</td>
+                      <td class="rightCol">O(n x log n)</td>
+                    </tr>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Worst Case</td>
+                      <td class="rightCol">O(n<sup>2</sup>)</td>
+                    </tr>
+                    <tr>
+                      <td class="leftCol">Space Complexity</td>
+                      <td class="rightCol">O(n)</td>
+                    </tr>
+                </table>                  
+            </div>
+        </div>
+
+        <div id="infoSectionMerge" class="infoSectionContent">
+            <div class="infoSectionWords">
+                <h2>DESCRIPTION</h2>
+                <p>
+                    Merge Sort is a sorting algorithm based on the Divide and Conquor technique, like Quick Sort. It can be implemented 
+                    iteratively or recursively, using the Top-Down and Bottom-Up algorithms respectively. Represented here is the first one.
+                </p>
+                <p>
+                    The algorithm divides the data structure recursively until the subsequences contain only one element. At this point, 
+                    the subsequences get merged and ordered sequentially. To do so, the algorithm progressively builds the sorted sublist 
+                    by adding the minimum element of the next two unsorted subsequences until there is only one sublist remaining. 
+                    This will be the sorted data structure.
+                </p>
+            </div>
+            <div class="infoSectionTable">
+                <h2>COMPLEXITY</h2>
+                <table>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Average</td>
+                      <td class="rightCol">O(n x log n)</td>
+                    </tr>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Best Case</td>
+                      <td class="rightCol">O(n x log n)</td>
+                    </tr>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Worst Case</td>
+                      <td class="rightCol">O(n x log n)</td>
+                    </tr>
+                    <tr>
+                      <td class="leftCol">Space Complexity</td>
+                      <td class="rightCol">O(n)</td>
+                    </tr>
+                </table>                  
+            </div>
+        </div>
+
+        <div id="infoSectionHeap" class="infoSectionContent">
+            <div class="infoSectionWords">
+                <h2>DESCRIPTION</h2>
+                <p>
+                    Heap Sort is an in-place iterative sorting algorithm based on an auxiliary data structure called a heap. It's less efficient 
+                    than other algorithms with the same time complexity and it's not suitable for data structures with very few elements.
+                </p>
+                <p>
+                    The heap is a data structure representable as a binary tree, where each node has a value greater than or equal to its children. 
+                    Consequently, the root will hold the maximum value.
+                </p>
+                <p>
+                    The data structure initially gets ordered to form the heap, and then it gets progressively reordered with an algorithm similar 
+                    to Selection Sort, starting from the bigger elements. This process is known as heapify.
+                </p>
+            </div>
+            <div class="infoSectionTable">
+                <h2>COMPLEXITY</h2>
+                <table>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Average</td>
+                      <td class="rightCol">O(n x log n)</td>
+                    </tr>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Best Case</td>
+                      <td class="rightCol">O(n x log n)</td>
+                    </tr>
+                    <tr class="nonBottomRow">
+                      <td class="leftCol">Worst Case</td>
+                      <td class="rightCol">O(n x log n)</td>
+                    </tr>
+                    <tr>
+                      <td class="leftCol">Space Complexity</td>
+                      <td class="rightCol">O(1)</td>
+                    </tr>
+                </table>                  
+            </div>
+        </div>
+
+    </div>
 
   <script src="responsiveness.js"></script>
   <script src="main.js"></script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" href="favicon.png" type="image/x-icon">
+	<title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+	<div id="barContainer"></div>
+
+    <div id="controls">
+        <div id="buttons">
+            <div class="row1">
+                <button onclick="reset()">Generate New Array</button>
+                <div id="sliders">    
+                <div id="size">
+                    <input onclick="reset(), adjustSpeed()" id="sizeSlider" type="range" min="5" max="500" step=1 value="60">
+                    <div class="sizeLabel">
+                    <span>Size:</span><span id="sizeValueDisplay">60</span>
+                    </div>
+                </div>
+                <div id="speed">
+                    <input onclick="adjustSpeed()" id="speedSlider" type="range" min="1" max="25" stepDown=1 value="5">
+                    <div class="speedLabel">
+                    <span>Speed:</span><span id="speedValueDisplay">5</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="row2">
+                <button class="algoButton" onclick="bubbleSort()">Bubble Sort</button>
+                <button class="algoButton" onclick="selectionSort()">Selection Sort</button>
+                <button class="algoButton" onclick="insertionSort()">Insertion Sort</button>
+                <button class="algoButton" onclick="quickSort()">Quick Sort</button>
+                <button class="algoButton" onclick="mergeSort()">Merge Sort</button>
+                <button class="algoButton" onclick="heapSort()">Heap Sort</button>
+            </div>
+        </div>
+    </div>
+
+
+  <script src="responsiveness.js"></script>
+  <script src="main.js"></script>
+  <script src="bubbleSort.js"></script>
+  <script src="selectionSort.js"></script>
+  <script src="insertionSort.js"></script>
+  <script src="quickSort.js"></script>
+  <script src="mergeSort.js"></script>
+  <script src="heap.js"></script>
+</body>
+</html>

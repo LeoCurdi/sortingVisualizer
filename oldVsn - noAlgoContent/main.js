@@ -18,7 +18,6 @@ var speedValueDisplay = document.querySelector('#speedValueDisplay');
 let interval, resetButton = false;
 var barArray = [], integerArray = [];
 var barHeight;
-var lastAlgo = 'Home';
 
 
 // Generate initial array on page load
@@ -69,7 +68,7 @@ async function generateArray() {
     barArray = [], integerArray = [];
     for (let i = 0; i < size.value; i++) {
         // generate the random integer array
-        const height = Math.floor(Math.random() * 540) + 10;
+        const height = Math.floor(Math.random() * 510) + 40;
         integerArray.push(height);
 
         // create the bar array concurrently
@@ -109,68 +108,41 @@ function swapInts(i, j) {
     integerArray[j] = temp;
 }
 
-// set info display to none for all algos except the selected one
-function loadInfo(lastAlgo, curAlgo) {
-
-    var info = document.getElementById(`infoSection${lastAlgo}`);
-    if (info !== null) {
-        info.style.display = 'none';
-    }
-
-    info = document.getElementById(`infoSection${curAlgo}`);
-    info.style.display = 'flex';
-
-}
-
 // bubble sort
 async function bubbleSort() {
-    loadInfo(lastAlgo, 'Bubble');
-    lastAlgo = 'Bubble';
     disableButtons();
     resetButton = false;
     await bubbleSortAlgo();
+    //enableButtons();
 }
 
 // selection sort
 async function selectionSort() {
-    loadInfo(lastAlgo, 'Selection');
-    lastAlgo = 'Selection';
     disableButtons();
     resetButton = false;
     await selectionSortAlgo();
+    //enableButtons();
 }
 
 // insertion sort
 async function insertionSort() {
-    loadInfo(lastAlgo, 'Insertion');
-    lastAlgo = 'Insertion';
     disableButtons();
     resetButton = false;
     await insertionSortAlgo();
+    //enableButtons();
 }
 
 // quick sort
 async function quickSort() {
-    loadInfo(lastAlgo, 'Quick');
-    lastAlgo = 'Quick';
     disableButtons();
     await quickSortAlgo(integerArray, 0, integerArray.length - 1, barArray); // the await makes it so anything after the quicksortAlgo call - such as enable buttons - wont execute until sorting is complete. this is necessary because there are recursive calls happening asyncly so its impossible to tell when it would be done
+    //enableButtons();
 }
 
 // merge sort
 async function mergeSort() {
-    loadInfo(lastAlgo, 'Merge');
-    lastAlgo = 'Merge';
     disableButtons();
     resetButton = false;
     await mergeSortAlgo(integerArray, 0, integerArray.length - 1);
-}
-
-// heap sort
-async function heapSort() {
-    loadInfo(lastAlgo, 'Heap');
-    lastAlgo = 'Heap';
-    disableButtons();
-    resetButton = false;
-    await heapSortAlgo();
+    //enableButtons();
 }

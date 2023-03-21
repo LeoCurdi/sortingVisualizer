@@ -22,7 +22,7 @@ percentage = remainingHeight / totalHeight * 120; */
 // burner ^^
 
 
-var barIntegerConversion = 70 / 550;
+var barIntegerConversion = 80 / 550;
 
 // if we're on mobile. All of this only happens on page load / refresh
 if (mobileScreen) {

@@ -4,48 +4,54 @@
         padding: 0;
         width: 100%;
         font-family: Arial, sans-serif;
-        background-color: black;
+        background-color: /* #0a1a34 */#2a2a2a;
+
+        /* mount everything to the bottom of the page (remove this if putting the control bar on top */
+        position: absolute;
+        bottom: 0;
     }
 
 
 /* bars */
-    #barSection {
-        width: 100%;
-        background-color: #2a2a2a;
-        padding-top: 2rem;
-    }
-
     #barContainer {
         display: flex;
         align-items: flex-end;
-        height: 70vh;
-        width: 90%;
-        margin-left: 5%;
-        background-color: #2a2a2a;
+        height: 80vh;
+        width: 75%;
+        margin-left: 12.5%;
+        background-color: /* #0a1a34 */#2a2a2a;
     }
     .bar {
         height: 100%;
         margin: 0 1px;
+        /* background-color: #05e6ff; */
         background-image: linear-gradient(to bottom, #ffffff, #000000);
+/*         background-size: 100% 120%;
+        background-position: center top;
+        background-repeat: no-repeat; */
         flex: 1;
     }
     .sortedBar {
-        background-color: #00005b;
+        /* background-image: none; */
+        background-color: /* #9D81FF */#00005b;
         background-image: linear-gradient(to bottom, #0000c2, #000000);
     }
     .activeBar {
         background-image: none;
-        background-color: red;
+        background-color: /* #691eff */red;
     }
     .pivotBar {
         background-image: none;
-        background-color: red;
+        background-color: /* #35ff1e */red;
     }
     .leftArray {
-        background-color: none;
+        /* background-image: none; */
+        background-color: /* #00ffd9 */none;
     }
     .rightArray {
-        background-color: none;
+        /* background-image: none; */
+        background-color: /* #d951ff */none;
+        /* background-color: #6d87ff; */ /* delete this line (testing stuff) */
     }
 
 
@@ -58,8 +64,8 @@
       justify-content: center;
       align-items: center;
       margin: 0 auto;
-      background-color: #000000;
-      padding-top: 1.7rem;
+      background-color: /* #08152a */#000000;
+      padding: 1.9rem 0;
     }
     #buttons {
       display: flex;
@@ -72,18 +78,18 @@
       margin: 5px;
       padding: 15px 20px;
       font-size: 1em;
-      background-color: #00005b;
-      color: #fff;
+      background-color: /* #691eff *//* #7b0000 */ #00005b; /* alt color: #4286f4 */
+      color: #fff/* #222222 */;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
     button[disabled] { /* hide hover effect on buttons that you cant click on (algo buttons when another algo is running) */
       pointer-events: none;
-      opacity: .2;
+      opacity: /* .15 */.2;
     }
     button:hover {
-      background-color: #00005b5d;
+      background-color: /* rgb(157, 129, 255) */#00005b5d;
     }
 
     .row1 {
@@ -115,6 +121,7 @@
       height: 3px;
       border-radius: 0px;
       background: rgb(202, 202, 202);
+      /* margin-right: 100px; */ /* this makes the slider bars longer */
       width: 16em; /* this makes the slider bars longer */
       margin-bottom: 10px;
     }
@@ -124,7 +131,7 @@
       width: 9px;
       height: 23px;
       border-radius: 0%;
-      background: /* #00005b */ white;
+      background: /* #691eff *//* #7b0000 */#00005b;
       cursor: pointer;
     }
     #sizeSlider::-moz-range-thumb, #speedSlider::-moz-range-thumb { /* Firefox */
@@ -142,58 +149,3 @@
     #sizeValueDisplay, #speedValueDisplay {
       padding-left: 3px;
     }
-
-/* info section */
-#infoSection {
-    width: 100%;
-    background-image: linear-gradient(to bottom, #000000, #585858);
-    padding-bottom: 2rem;
-}
-
-.infoSectionContent {
-    color: white;
-    padding-left: 4rem;
-    padding-right: 4rem;  
-
-}
-
-.infoSectionWords {
-    width: 62%;
-    margin-right: 5%;
-}
-.infoSectionTable {
-    width: 33%;
-}
-
-.infoSectionContent p {
-    font-size: 1.5rem;
-}
-
-table {
-    border-collapse: collapse;
-    font-size: 1.5rem;
-}
-table .leftCol {
-    border-right: #00005b 3px solid;
-    padding-right: .5rem;
-}
-.nonBottomRow {
-    border-bottom: #00005b 3px solid;
-}
-table .rightCol {
-    padding-left: .5rem;
-}
-td {
-    padding-top: .4rem;
-    padding-bottom: .4rem;
-}
-
-#infoSectionBubble, #infoSectionSelection, #infoSectionInsertion, #infoSectionQuick, #infoSectionMerge, #infoSectionHeap {
-    display: none;
-}
-
-#infoSectionHome {
-    max-width: 1000px;
-    margin: auto;
-    overflow: none;
-}
