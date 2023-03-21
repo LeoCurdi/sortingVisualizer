@@ -1,0 +1,121 @@
+/* body */
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #0a1a34;
+    }
+
+
+/* bars */
+    #array-container {
+      display: flex;
+      align-items: flex-end;
+      height: 500px;
+      width: 75%;
+      margin-left: 12.5%;
+      background-color: #0a1a34;
+      padding: 20px 0px 20px 0px;
+      margin-bottom: 5px;
+      margin-top: 35px;
+    }
+    .array-bar {
+      height: 100%;
+      margin: 0 1px;
+      background-color: #05e6ff;
+      flex: 1;
+    }
+    .sorted-bar {
+      background-color: #9D81FF;
+    }
+    .active-bar {
+      background-color: #691eff;
+    }
+    .pivotBar {
+      background-color: #35ff1e;
+    }
+    .leftArray {
+      background-color: rgb(0, 255, 217);
+    }
+    .rightArray {
+      background-color: #d951ff;
+      background-color: #6d87ff; /* delete this line (testing stuff) */
+    }
+
+
+
+/* controls */
+    #controls {
+      display: inline-block;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+    #buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #691eff; /* alt color: #4286f4 */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button[disabled] { /* hide hover effect on buttons what you cant click on (algo buttons when another algo is running */
+      pointer-events: none;
+      opacity: .3;
+    }
+    button:hover {
+      background-color: rgb(157, 129, 255);
+    }
+    #sliders {
+      color: #fff; /* text color */
+      margin-top: 6px;
+      /* margin-left: 5px; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #sizeValue, #speedValue {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 87%;
+      height: 3px;
+      border-radius: 0px;
+      background: rgb(202, 202, 202);
+      margin-right: 100px; /* this makes the slider bars longer */
+      margin-bottom: 10px;
+    }
+    #sizeValue::-webkit-slider-thumb, #speedValue::-webkit-slider-thumb { /* WebKit (Safari, Chrome) */
+      -webkit-appearance: none;
+      appearance: none;
+      width: 9px;
+      height: 23px;
+      border-radius: 0%;
+      background: #691eff;
+      cursor: pointer;
+    }
+    #sizeValue::-moz-range-thumb, #speedValue::-moz-range-thumb { /* Firefox */
+      /* -webkit-appearance: none; */
+      appearance: none;
+      width: 9px;
+      height: 23px;
+      border-radius: 0%;
+      background: #691eff;
+      cursor: pointer;
+    }
+    .sizeLabel, .speedLabel {
+      width: 100%;
+      text-align: center;
+    }
+    #sizeValueDisplay, #speedValueDisplay {
+      padding: 0px 3px;
+    }
