@@ -17,11 +17,6 @@ async function mergeSortAlgo(integerArray, left, right) {
         if (resetButton) { 
             return; 
         }
-        // check for pause
-        if (pauseButton) {
-            await waitForUnPause();
-            pauseButton = false;
-        }
 
         await merge(integerArray, left, middle, right);
     }
@@ -42,12 +37,6 @@ async function merge(integerArray, left, middle, right) {
             barArray[i].classList.add('activeBar');
 
             await new Promise(resolve => setTimeout(resolve, interval * 2));
-        
-            // check for pause
-            if (pauseButton) {
-                await waitForUnPause();
-                pauseButton = false;
-            }
 
             barArray[i].classList.remove('activeBar');
             i++;
@@ -59,12 +48,6 @@ async function merge(integerArray, left, middle, right) {
 
             await new Promise(resolve => setTimeout(resolve, interval));
 
-            // check for pause
-            if (pauseButton) {
-                await waitForUnPause();
-                pauseButton = false;
-            }      
-
             barArray[j].classList.remove('activeBar');
 
             // Shift elements to the right to make space for the element being merged
@@ -74,7 +57,7 @@ async function merge(integerArray, left, middle, right) {
                 // check for reset
                 if (resetButton) { 
                     return; 
-                }  
+                }
 
                 integerArray[k + 1] = integerArray[k];
 

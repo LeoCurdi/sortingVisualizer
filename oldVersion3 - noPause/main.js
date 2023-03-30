@@ -14,11 +14,8 @@ let size = document.querySelector('#sizeSlider');
 var sizeValueDisplay = document.querySelector('#sizeValueDisplay'); // to modify size dipslay value
 let speed = document.querySelector('#speedSlider');
 var speedValueDisplay = document.querySelector('#speedValueDisplay');
-var resetAndPauseButtons = document.querySelector('#resetAndPauseButtons');
-var generateArrayButton = document.querySelector('#generateArrayButton');
-const pauseButton1 = document.getElementById('pauseButton');
 
-let interval, resetButton = false, pauseButton = false;
+let interval, resetButton = false;
 var barArray = [], integerArray = [];
 var barHeight;
 var lastAlgo = 'Home';
@@ -40,30 +37,16 @@ speed.addEventListener('input', () => {
 });
 
 
-// disable buttons when a sorting algorithm is called. Note: also toggles the left buttons
+// disable buttons when a sorting algorithm is called
 function disableButtons() {
     for (let i = 0; i < algoButtons.length; i++) {
         algoButtons[i].disabled = true;
     }
-    toggleLeftButtons(1);
 }
-// enable buttons when a sorting algorithm is completed. Note: also toggles the left buttons
+// enable buttons when a sorting algorithm is completed
 function enableButtons() {
     for (let i = 0; i < algoButtons.length; i++) {
         algoButtons[i].disabled = false;
-    }
-    toggleLeftButtons(0);
-}
-
-// toggle whether generate new array or both reset and pause button are displayed
-function toggleLeftButtons(option) {
-    if (option === 1) {
-        generateArrayButton.style.display = 'none';
-        resetAndPauseButtons.style.display = 'flex';
-    }
-    else {
-        resetAndPauseButtons.style.display = 'none';
-        generateArrayButton.style.display = 'flex';
     }
 }
 
@@ -104,9 +87,6 @@ async function generateArray() {
    
 // Reset the array
 async function reset() {
-    if (pauseButton) {
-        togglePause();
-    }
     enableButtons();
     resetButton = true;
     for (let i = 0; i < barArray.length; i++) {
@@ -114,38 +94,6 @@ async function reset() {
     }
     barArray.length = 0;
     generateArray();
-}
-
-// pause the algorithm
-async function togglePause() {
-    pauseButton = !pauseButton;
-    if (pauseButton) {
-        pauseButton1.textContent = 'Resume';
-    }
-    else {
-        pauseButton1.textContent = 'Pause';
-    }
-}
-
-// wait for un pause
-async function waitForUnPause() {
-    console.log('Waiting for pause variable to be true...');
-
-    // Create a Promise that resolves when the pause variable is true
-    const pausePromise = new Promise((resolve) => {
-        const checkPause = () => {
-            if (!pauseButton) {
-                resolve();
-            } 
-            else {
-                setTimeout(checkPause, 50); // only recursively call the function to check if the button has been clicked every x milliseconds
-            }
-        };
-        checkPause();
-    });
-
-    await pausePromise;
-    console.log('Pause variable is true!');
 }
 
 // Swap two bars - helper function
@@ -181,7 +129,6 @@ async function bubbleSort() {
     disableButtons();
     resetButton = false;
     await bubbleSortAlgo();
-    toggleLeftButtons(0);
 }
 
 // selection sort
@@ -191,7 +138,6 @@ async function selectionSort() {
     disableButtons();
     resetButton = false;
     await selectionSortAlgo();
-    toggleLeftButtons(0);
 }
 
 // insertion sort
@@ -201,7 +147,6 @@ async function insertionSort() {
     disableButtons();
     resetButton = false;
     await insertionSortAlgo();
-    toggleLeftButtons(0);
 }
 
 // quick sort
@@ -210,7 +155,6 @@ async function quickSort() {
     lastAlgo = 'Quick';
     disableButtons();
     await quickSortAlgo(integerArray, 0, integerArray.length - 1, barArray); // the await makes it so anything after the quicksortAlgo call - such as enable buttons - wont execute until sorting is complete. this is necessary because there are recursive calls happening asyncly so its impossible to tell when it would be done
-    toggleLeftButtons(0);
 }
 
 // merge sort
@@ -220,7 +164,6 @@ async function mergeSort() {
     disableButtons();
     resetButton = false;
     await mergeSortAlgo(integerArray, 0, integerArray.length - 1);
-    toggleLeftButtons(0);
 }
 
 // heap sort
@@ -230,5 +173,4 @@ async function heapSort() {
     disableButtons();
     resetButton = false;
     await heapSortAlgo();
-    toggleLeftButtons(0);
 }

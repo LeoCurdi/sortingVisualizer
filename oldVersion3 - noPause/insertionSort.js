@@ -25,11 +25,6 @@ async function insertionSortAlgo() {
                 barArray[j+1].classList.remove("activeBar");
                 return;
             }
-            // check for pause
-            if (pauseButton) {
-                await waitForUnPause();
-                pauseButton = false;
-            }
 
             // swap
             swapBars(j + 1, j);

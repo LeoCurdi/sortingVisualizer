@@ -3,7 +3,7 @@
 // check if we're on mobile (aka if we're on a vertical screen)
 var screenWidth = window.innerWidth; // grab screen width
 var screenHeight = window.innerHeight; // grab screen height
-var mobileScreen = screenWidth * 0.6/* fudge it so it counts pc half tabs as mobile screen */ < screenHeight; // check if mobile screen. mobile screen is a bool that stores true or false
+var mobileScreen = screenWidth * 0.65/* fudge it so it counts pc half tabs as mobile screen */ < screenHeight; // check if mobile screen. mobile screen is a bool that stores true or false
 
 // grab stuff to modify
 let speedSlider = document.querySelector('#speed');
@@ -46,7 +46,7 @@ window.addEventListener('resize', function(event) {
     percentage = remainingHeight / totalHeight * 100; */
     // burner ^^
 
-    mobileScreen = window.innerWidth * 0.60 < window.innerHeight;
+    mobileScreen = window.innerWidth * 0.65 < window.innerHeight;
 
     // if we're on vertical screen.
     if (mobileScreen) {

@@ -11,7 +11,8 @@
 /* bars */
     #barSection {
         width: 100%;
-        background-image: linear-gradient(to bottom, #161616, #373737);
+        background-color: #2a2a2a;
+        background-image: linear-gradient(to bottom, #1f1f1f, #2a2a2a);
         padding-top: 2rem;
     }
 
@@ -29,6 +30,7 @@
         flex: 1;
     }
     .sortedBar {
+        background-color: #00005b;
         background-image: linear-gradient(to bottom, #0000c2, #000000);
     }
     .activeBar {
@@ -88,14 +90,6 @@
 
     .row1 {
         display: inline-flex;
-    }
-
-    /* left buttons */
-    #resetAndPauseButtons {
-        display: none;
-    }
-    #pauseButton {
-      width: 5.8rem;
     }
 
     #sliders {

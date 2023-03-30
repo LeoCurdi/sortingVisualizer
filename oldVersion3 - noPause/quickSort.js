@@ -34,18 +34,11 @@ async function partition(integerArray, low, high, barArray) {
     let i = low - 1;
 
     for (let j = low; j < high; j++) {
-
         barArray[j].classList.remove('rightArray');
         barArray[j].classList.remove('leftArray');
         barArray[j].classList.add('activeBar');
 
         await new Promise(resolve => setTimeout(resolve, interval));
-
-        // check for pause
-        if (pauseButton) {
-            await waitForUnPause();
-            pauseButton = false;
-        }
 
         if (integerArray[j] < pivot) {
             i++;

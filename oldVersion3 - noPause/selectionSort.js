@@ -16,11 +16,6 @@ async function selectionSortAlgo() {
                 barArray[minIndex].classList.remove("activeBar");
                 return;
             }
-            // check for pause
-            if (pauseButton) {
-                await waitForUnPause();
-                pauseButton = false;
-            }
 
             await new Promise(resolve => setTimeout(() => { resolve(); }, interval));
 

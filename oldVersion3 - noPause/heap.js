@@ -17,11 +17,6 @@ async function heapSortAlgo() {
         if (resetButton) { 
             return;
         }
-        // check for pause
-        if (pauseButton) {
-            await waitForUnPause();
-            pauseButton = false;
-        }        
 
         barArray[i].classList.add('sortedBar');
 
@@ -65,12 +60,6 @@ async function heapify(integerArray, root, heapSize) {
         }
         return; 
     }
-    // check for pause
-    if (pauseButton) {
-        await waitForUnPause();
-        pauseButton = false;
-    }
-
   
     if (left < heapSize && integerArray[left] > integerArray[largest]) { // if left points to an element inside the array (left child exists), and left child is greater than root
         barArray[root].classList.remove('activeBar'); 

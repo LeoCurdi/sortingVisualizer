@@ -16,11 +16,6 @@ async function bubbleSortAlgo() {
                 barArray[j + 1].classList.remove("activeBar");
                 return;
             }
-            // check for pause
-            if (pauseButton) {
-                await waitForUnPause();
-                pauseButton = false;
-            }
 
             await new Promise(resolve => setTimeout(() => { resolve(); }, interval));
 
