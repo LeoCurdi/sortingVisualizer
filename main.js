@@ -129,7 +129,7 @@ async function togglePause() {
 
 // wait for un pause
 async function waitForUnPause() {
-    console.log('Waiting for pause variable to be true...');
+    console.log('Waiting for pause variable to be false...');
 
     // Create a Promise that resolves when the pause variable is true
     const pausePromise = new Promise((resolve) => {
@@ -145,7 +145,7 @@ async function waitForUnPause() {
     });
 
     await pausePromise;
-    console.log('Pause variable is true!');
+    console.log('Pause variable is false!');
 }
 
 // Swap two bars - helper function
